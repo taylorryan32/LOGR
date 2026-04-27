@@ -126,67 +126,88 @@
 
     <main>
       <section class="border-b border-black/10 bg-canvas" aria-labelledby="platform-main-heading">
-        <div
-          class="mx-auto grid max-w-6xl gap-10 px-5 pb-12 pt-14 sm:px-6 sm:pb-16 sm:pt-16 lg:grid-cols-2 lg:items-center lg:gap-14 lg:px-8 lg:pb-20 lg:pt-24"
-        >
-          <div class="text-center lg:text-left">
-            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
-              The platform
-            </p>
-            <h1
-              id="platform-main-heading"
-              class="font-display mt-5 text-[clamp(2rem,5vw,3.35rem)] font-black leading-[1.08] tracking-tight text-ink"
-            >
-              Train smarter. Track progress. Keep your crew accountable.
-            </h1>
-            <p class="mt-6 max-w-2xl text-base leading-relaxed text-ink/65 sm:text-lg">
-              LOGR helps gyms, teams, and students manage workouts, progress, and group
-              training in one clean platform.
-            </p>
-            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              <a
-                href="index.html#waitlist"
-                class="inline-flex min-h-[48px] items-center justify-center rounded-full border border-ink bg-ink px-7 py-3 text-sm font-semibold text-canvas transition hover:bg-ink/90"
+        <!-- Hero: text-only on mobile, side-by-side on desktop -->
+        <div class="mx-auto max-w-6xl px-5 pb-12 pt-14 sm:px-6 sm:pb-16 sm:pt-16 lg:px-8 lg:pb-20 lg:pt-24">
+          <div class="mx-auto max-w-2xl text-center lg:mx-0 lg:max-w-none lg:grid lg:grid-cols-2 lg:items-center lg:gap-14 lg:text-left">
+            <!-- copy column -->
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
+                The platform
+              </p>
+              <h1
+                id="platform-main-heading"
+                class="font-display mt-4 text-[clamp(1.85rem,5vw,3.25rem)] font-black leading-[1.08] tracking-tight text-ink"
               >
-                Join the early access list
-              </a>
-              <a
-                href="#platform-modules"
-                class="inline-flex min-h-[48px] items-center justify-center rounded-full border border-black/15 bg-canvas px-7 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-accent/40 hover:text-accent"
-              >
-                See how it works
-              </a>
-            </div>
-            <div class="mt-8 grid gap-3 sm:grid-cols-3">
-              <div class="rounded-2xl border border-black/10 bg-muted px-4 py-3 text-sm font-medium text-ink/70">
-                Built for student athletes, gym crews, and fitness communities
+                Train smarter.<br class="hidden sm:inline" />
+                Track progress.<br class="hidden sm:inline" />
+                Keep your crew accountable.
+              </h1>
+              <p class="mt-5 text-base leading-relaxed text-ink/65">
+                LOGR helps gyms, teams, and students manage workouts, progress, and
+                group training in one clean platform.
+              </p>
+              <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+                <a
+                  href="index.html#waitlist"
+                  class="inline-flex min-h-[48px] items-center justify-center rounded-full border border-ink bg-ink px-7 py-3 text-sm font-semibold text-canvas transition hover:bg-ink/90"
+                >
+                  Join the early access list
+                </a>
+                <a
+                  href="#platform-modules"
+                  class="inline-flex min-h-[48px] items-center justify-center rounded-full border border-black/15 bg-canvas px-7 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-black/25"
+                >
+                  See how it works
+                </a>
               </div>
-              <div class="rounded-2xl border border-black/10 bg-muted px-4 py-3 text-sm font-medium text-ink/70">
-                Early access opening soon
-              </div>
-              <div class="rounded-2xl border border-black/10 bg-muted px-4 py-3 text-sm font-medium text-ink/70">
-                Designed for coaches, teams, and everyday lifters
+              <!-- social proof pills — horizontal scroll on mobile -->
+              <div class="mt-8 flex flex-wrap gap-2">
+                <span class="rounded-full border border-black/10 bg-muted px-4 py-2 text-xs font-medium text-ink/65">
+                  Student athletes &amp; gym crews
+                </span>
+                <span class="rounded-full border border-black/10 bg-muted px-4 py-2 text-xs font-medium text-ink/65">
+                  Early access opening soon
+                </span>
+                <span class="rounded-full border border-black/10 bg-muted px-4 py-2 text-xs font-medium text-ink/65">
+                  Built for coaches and everyday lifters
+                </span>
               </div>
             </div>
-          </div>
-          <div class="rounded-3xl border border-black/10 bg-muted p-4 shadow-sm sm:p-5">
-            <div class="rounded-2xl border border-black/10 bg-canvas p-3">
-              <img
-                src="mockups/fitness-weekly-bars.svg"
-                alt="LOGR weekly training dashboard preview"
-                class="h-auto w-full rounded-xl object-contain"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="mt-3 rounded-2xl border border-black/10 bg-canvas p-3">
-              <img
-                src="mockups/fitness-split-donut.svg"
-                alt="LOGR training split dashboard preview"
-                class="h-auto w-full rounded-xl object-contain"
-                loading="lazy"
-                decoding="async"
-              />
+            <!-- visual column — hidden on mobile to keep hero clean -->
+            <div class="hidden lg:block">
+              <div class="rounded-3xl border border-black/10 bg-muted p-4 shadow-sm">
+                <img
+                  src="mockups/fitness-weekly-bars.svg"
+                  alt="LOGR weekly training dashboard preview"
+                  class="h-auto w-full rounded-2xl border border-black/10 bg-canvas object-contain shadow-sm"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="mt-3 grid grid-cols-2 gap-3">
+                  <img
+                    src="mockups/fitness-split-donut.svg"
+                    alt="Training split breakdown"
+                    class="h-auto w-full rounded-2xl border border-black/10 bg-canvas object-contain shadow-sm"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div class="flex flex-col justify-between rounded-2xl border border-black/10 bg-canvas p-4 shadow-sm">
+                    <p class="text-[10px] font-semibold uppercase tracking-wider text-ink/45">This month</p>
+                    <div>
+                      <p class="font-display text-2xl font-black text-ink">12,450</p>
+                      <p class="text-xs text-ink/50">lbs volume</p>
+                    </div>
+                    <div class="space-y-1.5">
+                      <div class="flex justify-between text-[10px] font-medium text-ink/55">
+                        <span>Bench PR</span><span class="text-ink">+10 lbs</span>
+                      </div>
+                      <div class="h-1.5 w-full overflow-hidden rounded-full bg-ink/10">
+                        <div class="h-full w-[72%] rounded-full bg-ink"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -208,162 +229,113 @@
               </p>
             </div>
 
-            <article class="mt-14 grid gap-10 lg:mt-20 lg:grid-cols-2 lg:items-center lg:gap-16">
-              <div class="order-2 lg:order-1">
-                <p class="font-display text-[clamp(4rem,18vw,7rem)] font-black leading-none text-ink/[0.07]">
-                  01
-                </p>
-                <h3 class="-mt-3 font-display text-xl font-bold tracking-tight text-ink sm:-mt-4 sm:text-2xl">
+            <article class="mt-14 grid gap-8 lg:mt-20 lg:grid-cols-2 lg:items-center lg:gap-16">
+              <!-- text always first on mobile -->
+              <div>
+                <p class="font-display text-[clamp(3.5rem,14vw,6rem)] font-black leading-none text-ink/[0.07]">01</p>
+                <h3 class="-mt-2 font-display text-xl font-bold tracking-tight text-ink sm:text-2xl">
                   Workout tracking
                 </h3>
-                <p class="mt-4 text-[15px] leading-relaxed text-ink/70 sm:text-base">
+                <p class="mt-3 text-[15px] leading-relaxed text-ink/70">
                   Build sessions, log sets and reps, and track weekly volume without
                   rebuilding your plan every week.
                 </p>
                 <a
                   href="index.html#waitlist"
-                  class="mt-6 inline-flex touch-manipulation items-center rounded-full border border-ink bg-ink px-7 py-3 text-sm font-semibold text-canvas transition active:bg-ink/95 md:hover:bg-ink/90"
+                  class="mt-5 inline-flex touch-manipulation items-center rounded-full border border-ink bg-ink px-6 py-3 text-sm font-semibold text-canvas transition hover:bg-ink/90"
                 >
                   Join the early access list
                 </a>
               </div>
+              <!-- visual panel below copy on mobile, right column on desktop -->
               <div
-                class="order-1 overflow-hidden rounded-3xl border border-black/10 bg-gradient-to-br from-canvas via-muted to-neutral-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] lg:order-2"
+                class="overflow-hidden rounded-3xl border border-black/10 bg-muted shadow-sm"
                 aria-hidden="true"
               >
-                <div class="flex flex-col gap-4 p-5 sm:p-7">
-                  <div
-                    class="flex items-center gap-3 rounded-2xl border border-black/10 bg-canvas p-3 shadow-sm"
-                  >
-                    <img
-                      src="mockups/fitness-split-donut.svg"
-                      alt=""
-                      width="200"
-                      height="200"
-                      class="h-[100px] w-[100px] shrink-0 object-contain sm:h-[112px] sm:w-[112px]"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div class="min-w-0 flex-1 space-y-2">
-                      <div class="h-2 w-3/4 rounded-full bg-ink/12"></div>
-                      <div class="h-2 w-full rounded-full bg-ink/[0.08]"></div>
-                      <div class="flex gap-2 pt-1">
-                        <span class="h-9 flex-1 rounded-lg bg-muted"></span>
-                        <span class="h-9 flex-1 rounded-lg bg-muted"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <img
-                    src="mockups/fitness-weekly-bars.svg"
-                    alt=""
-                    width="400"
-                    height="240"
-                    class="mt-auto h-auto w-full rounded-xl border border-black/10 object-contain shadow-sm"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
+                <img
+                  src="mockups/fitness-weekly-bars.svg"
+                  alt=""
+                  class="h-auto w-full object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </article>
 
             <article
-              class="mt-16 grid gap-10 border-t border-black/10 pt-16 lg:mt-24 lg:grid-cols-2 lg:items-center lg:gap-16 lg:pt-24"
+              class="mt-12 grid gap-8 border-t border-black/10 pt-12 lg:mt-20 lg:grid-cols-2 lg:items-center lg:gap-16 lg:pt-20"
             >
-              <div
-                class="overflow-hidden rounded-3xl border border-black/10 bg-gradient-to-br from-neutral-800 via-neutral-900 to-black shadow-xl"
-                aria-hidden="true"
-              >
-                <div class="flex flex-col p-5 text-white sm:p-7">
-                  <div class="flex items-center justify-between text-[10px] font-medium uppercase tracking-wider text-white/50">
-                    <span>Feed</span>
-                    <span class="rounded bg-white/10 px-2 py-0.5 font-mono text-[10px] text-white/80">Today</span>
-                  </div>
-                  <div class="mt-4 overflow-hidden rounded-xl border border-white/10 bg-black/20 shadow-lg shadow-black/30">
-                    <iframe
-                      src="mockups/logr_social_feed_real.html"
-                      title="LOGR social feed preview"
-                      class="block h-[380px] w-full border-0 bg-neutral-950"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <p class="font-display text-[clamp(4rem,18vw,7rem)] font-black leading-none text-ink/[0.07]">
-                  02
-                </p>
-                <h3 class="-mt-3 font-display text-xl font-bold tracking-tight text-ink sm:-mt-4 sm:text-2xl">
+              <!-- text first on mobile -->
+              <div class="lg:order-2">
+                <p class="font-display text-[clamp(3.5rem,14vw,6rem)] font-black leading-none text-ink/[0.07]">02</p>
+                <h3 class="-mt-2 font-display text-xl font-bold tracking-tight text-ink sm:text-2xl">
                   Group and team management
                 </h3>
-                <p class="mt-4 text-[15px] leading-relaxed text-ink/70 sm:text-base">
+                <p class="mt-3 text-[15px] leading-relaxed text-ink/70">
                   Keep everyone in one feed with training posts, comments, and daily
                   activity so accountability stays high.
                 </p>
                 <a
                   href="index.html#app-preview"
-                  class="mt-6 inline-flex touch-manipulation items-center rounded-full border border-black/15 bg-canvas px-7 py-3 text-sm font-semibold text-ink shadow-sm transition active:bg-muted md:hover:border-black/25"
+                  class="mt-5 inline-flex touch-manipulation items-center rounded-full border border-black/15 bg-canvas px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-black/25"
                 >
-                  See how it works
+                  Open live demo
                 </a>
+              </div>
+              <!-- feed mockup: responsive height -->
+              <div
+                class="overflow-hidden rounded-3xl border border-black/10 bg-neutral-950 shadow-xl lg:order-1"
+                aria-hidden="true"
+              >
+                <iframe
+                  src="mockups/logr_feed_app_match.html"
+                  title="LOGR crew feed preview"
+                  class="block h-[420px] w-full border-0 sm:h-[520px]"
+                  loading="lazy"
+                ></iframe>
               </div>
             </article>
 
             <article
-              class="mt-16 grid gap-10 border-t border-black/10 pt-16 lg:mt-24 lg:grid-cols-2 lg:items-center lg:gap-16 lg:pt-24"
+              class="mt-12 grid gap-8 border-t border-black/10 pt-12 lg:mt-20 lg:grid-cols-2 lg:items-center lg:gap-16 lg:pt-20"
             >
-              <div class="order-2 lg:order-1">
-                <p class="font-display text-[clamp(4rem,18vw,7rem)] font-black leading-none text-ink/[0.07]">
-                  03
-                </p>
-                <h3 class="-mt-3 font-display text-xl font-bold tracking-tight text-ink sm:-mt-4 sm:text-2xl">
+              <!-- text first on mobile -->
+              <div>
+                <p class="font-display text-[clamp(3.5rem,14vw,6rem)] font-black leading-none text-ink/[0.07]">03</p>
+                <h3 class="-mt-2 font-display text-xl font-bold tracking-tight text-ink sm:text-2xl">
                   Progress dashboards
                 </h3>
-                <p class="mt-4 text-[15px] leading-relaxed text-ink/70 sm:text-base">
+                <p class="mt-3 text-[15px] leading-relaxed text-ink/70">
                   Turn session data into trend views, volume totals, and PR history that
-                  athletes and coaches can review quickly.
+                  athletes and coaches can review at a glance.
                 </p>
                 <a
                   href="index.html#waitlist"
-                  class="mt-6 inline-flex touch-manipulation items-center rounded-full border border-ink bg-ink px-7 py-3 text-sm font-semibold text-canvas transition active:bg-ink/95 md:hover:bg-ink/90"
+                  class="mt-5 inline-flex touch-manipulation items-center rounded-full border border-ink bg-ink px-6 py-3 text-sm font-semibold text-canvas transition hover:bg-ink/90"
                 >
                   Join the early access list
                 </a>
               </div>
+              <!-- visual below copy on mobile, right column on desktop -->
               <div
-                class="order-1 overflow-hidden rounded-3xl border border-black/10 bg-gradient-to-t from-muted to-canvas lg:order-2"
+                class="overflow-hidden rounded-3xl border border-black/10 bg-muted shadow-sm"
                 aria-hidden="true"
               >
-                <div class="flex flex-col gap-4 p-5 sm:p-7">
-                  <img
-                    src="mockups/fitness-volume-trend.svg"
-                    alt=""
-                    width="400"
-                    height="200"
-                    class="h-auto w-full rounded-xl border border-black/10 bg-canvas object-contain shadow-sm"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="mt-auto space-y-3 border-t border-black/10 pt-4">
-                    <div class="flex flex-wrap items-end justify-between gap-3">
-                      <div>
-                        <p class="text-[10px] font-semibold uppercase tracking-wider text-ink/45">This month</p>
-                        <p class="font-display mt-1 text-3xl font-black text-ink">12,450</p>
-                        <p class="text-xs text-ink/50">lbs volume</p>
-                      </div>
-                      <div class="rounded-lg border border-black/10 bg-canvas px-3 py-2 text-right shadow-sm">
-                        <p class="text-[10px] font-semibold uppercase tracking-wider text-ink/45">Trend</p>
-                        <p class="font-display text-lg font-black text-ink">+18%</p>
-                      </div>
-                    </div>
-                    <div class="space-y-2">
-                      <div class="flex items-center justify-between text-xs font-medium text-ink/60">
-                        <span>Bench PR</span>
-                        <span class="text-ink">+10 lbs</span>
-                      </div>
-                      <div class="h-2 w-full overflow-hidden rounded-full bg-ink/10">
-                        <div class="h-full w-[72%] rounded-full bg-ink"></div>
-                      </div>
-                    </div>
+                <img
+                  src="mockups/fitness-volume-trend.svg"
+                  alt=""
+                  class="h-auto w-full object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="flex items-center justify-between gap-4 border-t border-black/10 bg-canvas px-5 py-4">
+                  <div>
+                    <p class="text-[10px] font-semibold uppercase tracking-wider text-ink/45">This month</p>
+                    <p class="font-display text-2xl font-black text-ink">12,450 <span class="text-sm font-normal text-ink/50">lbs</span></p>
+                  </div>
+                  <div class="text-right">
+                    <p class="text-[10px] font-semibold uppercase tracking-wider text-ink/45">Bench PR</p>
+                    <p class="font-display text-xl font-black text-ink">+10 lbs</p>
                   </div>
                 </div>
               </div>
