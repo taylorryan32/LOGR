@@ -1,27 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="t4">
-  <title id="t4">Training split donut chart mockup</title>
-  <defs>
-    <linearGradient id="seg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0A0A0A"/><stop offset="100%" stop-color="#404040"/></linearGradient>
-    <linearGradient id="seg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#737373"/><stop offset="100%" stop-color="#A3A3A3"/></linearGradient>
-    <linearGradient id="seg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#D4D4D4"/><stop offset="100%" stop-color="#E5E5E5"/></linearGradient>
-  </defs>
-  <rect width="200" height="200" fill="#FFFFFF"/>
-  <!-- ring C=2πr ≈ 389.56 for r=62 -->
-  <circle cx="100" cy="100" r="62" fill="none" stroke="#F5F5F5" stroke-width="28"/>
-  <circle cx="100" cy="100" r="62" fill="none" stroke="url(#seg1)" stroke-width="28"
-    stroke-dasharray="148.03 241.53" stroke-linecap="round" transform="rotate(-90 100 100)"/>
-  <circle cx="100" cy="100" r="62" fill="none" stroke="url(#seg2)" stroke-width="28"
-    stroke-dasharray="136.35 253.21" stroke-dashoffset="-148.03" stroke-linecap="round" transform="rotate(-90 100 100)"/>
-  <circle cx="100" cy="100" r="62" fill="none" stroke="url(#seg3)" stroke-width="28"
-    stroke-dasharray="105.18 284.38" stroke-dashoffset="-284.38" stroke-linecap="round" transform="rotate(-90 100 100)"/>
-  <circle cx="100" cy="100" r="38" fill="#FFFFFF"/>
-  <text x="100" y="96" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="800" fill="#0A0A0A" text-anchor="middle">38%</text>
-  <text x="100" y="112" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#737373" text-anchor="middle">Push</text>
-  <rect x="24" y="158" width="152" height="30" rx="6" fill="#FAFAFA" stroke="#E5E5E5"/>
-  <circle cx="38" cy="173" r="4" fill="#0A0A0A"/>
-  <text x="48" y="176" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#525252">Push</text>
-  <circle cx="92" cy="173" r="4" fill="#737373"/>
-  <text x="102" y="176" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#525252">Pull</text>
-  <circle cx="142" cy="173" r="4" fill="#D4D4D4"/>
-  <text x="152" y="176" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#525252">Legs</text>
+<svg width="100%" viewBox="0 0 690 310" role="img" xmlns="http://www.w3.org/2000/svg" style="">
+<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Training split</title>
+<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Weekly training split donut: Push 35%, Legs 30%, Pull 25%, Cardio 10%</desc>
+
+
+<rect width="680" height="300" rx="0" fill="#111" style="fill:rgb(17, 17, 17);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<text x="40" y="44" style="fill:rgb(136, 136, 136);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">training split</text>
+<text x="40" y="64" style="fill:rgb(85, 85, 85);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">this week</text>
+
+<g transform="translate(160,162)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+  <path d="M0,-95 A95,95 0 0,1 76.5,-55.7 L45.9,-33.4 A57,57 0 0,0 0,-57Z" fill="#f0ede8" style="fill:rgb(240, 237, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M76.5,-55.7 A95,95 0 0,1 90,29.3 L54,17.6 A57,57 0 0,0 45.9,-33.4Z" fill="#555" style="fill:rgb(85, 85, 85);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M90,29.3 A95,95 0 0,1 -76.5,55.7 L-45.9,33.4 A57,57 0 0,0 54,17.6Z" fill="#888" style="fill:rgb(136, 136, 136);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M-76.5,55.7 A95,95 0 0,1 0,-95 L0,-57 A57,57 0 0,0 -45.9,33.4Z" fill="#333" style="fill:rgb(51, 51, 51);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="0" cy="0" r="52" fill="#111" style="fill:rgb(17, 17, 17);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="0" y="-6" text-anchor="middle" font-size="20" style="fill:rgb(240, 237, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:26px;font-weight:500;text-anchor:middle;dominant-baseline:auto">5</text>
+  <text x="0" y="12" text-anchor="middle" style="fill:rgb(85, 85, 85);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">sessions</text>
+</g>
+
+<line x1="306" y1="80" x2="640" y2="80" stroke="#1e1e1e" stroke-width="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(30, 30, 30);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g transform="translate(320,80)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+  <rect x="0" y="8" width="6" height="6" fill="#f0ede8" style="fill:rgb(240, 237, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="14" y="18" style="fill:rgb(240, 237, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:13px;font-weight:500;text-anchor:start;dominant-baseline:auto">Push</text>
+  <text x="292" y="18" text-anchor="end" style="fill:rgb(240, 237, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:13px;font-weight:500;text-anchor:end;dominant-baseline:auto">35%</text>
+  <rect x="0" y="30" width="292" height="1" fill="#1e1e1e" style="fill:rgb(30, 30, 30);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="0" y="30" width="102" height="1" fill="#f0ede8" style="fill:rgb(240, 237, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <rect x="0" y="56" width="6" height="6" fill="#888" style="fill:rgb(136, 136, 136);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="14" y="66" style="fill:rgb(240, 237, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:13px;font-weight:500;text-anchor:start;dominant-baseline:auto">Legs</text>
+  <text x="292" y="66" text-anchor="end" style="fill:rgb(240, 237, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:13px;font-weight:500;text-anchor:end;dominant-baseline:auto">30%</text>
+  <rect x="0" y="78" width="292" height="1" fill="#1e1e1e" style="fill:rgb(30, 30, 30);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="0" y="78" width="87" height="1" fill="#888" style="fill:rgb(136, 136, 136);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <rect x="0" y="104" width="6" height="6" fill="#555" style="fill:rgb(85, 85, 85);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="14" y="114" style="fill:rgb(240, 237, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:13px;font-weight:500;text-anchor:start;dominant-baseline:auto">Pull</text>
+  <text x="292" y="114" text-anchor="end" style="fill:rgb(240, 237, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:13px;font-weight:500;text-anchor:end;dominant-baseline:auto">25%</text>
+  <rect x="0" y="126" width="292" height="1" fill="#1e1e1e" style="fill:rgb(30, 30, 30);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="0" y="126" width="73" height="1" fill="#555" style="fill:rgb(85, 85, 85);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <rect x="0" y="152" width="6" height="6" fill="#333" style="fill:rgb(51, 51, 51);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="14" y="162" style="fill:rgb(240, 237, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:13px;font-weight:500;text-anchor:start;dominant-baseline:auto">Cardio</text>
+  <text x="292" y="162" text-anchor="end" style="fill:rgb(240, 237, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:13px;font-weight:500;text-anchor:end;dominant-baseline:auto">10%</text>
+  <rect x="0" y="174" width="292" height="1" fill="#1e1e1e" style="fill:rgb(30, 30, 30);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="0" y="174" width="29" height="1" fill="#555" style="fill:rgb(85, 85, 85);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+</g>
+
+<line x1="40" y1="270" x2="640" y2="270" stroke="#1e1e1e" stroke-width="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(30, 30, 30);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="40" y="287" style="fill:rgb(85, 85, 85);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Mon â Sun</text>
+<text x="640" y="287" text-anchor="end" style="fill:rgb(85, 85, 85);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">personal program</text>
 </svg>
