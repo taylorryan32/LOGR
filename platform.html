@@ -9,7 +9,7 @@
     <title>LOGR Platform · Train with your people</title>
     <meta
       name="description"
-      content="Program your way, keep the crew feed central, and track PRs alongside your timeline—LOGR platform overview."
+      content="Program your way, keep the crew feed central, and track PRs alongside your timeline, LOGR platform overview."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,6 +51,23 @@
       }
       .scrollbar-touch-none::-webkit-scrollbar {
         display: none;
+      }
+      details summary {
+        list-style: none;
+      }
+      details summary::-webkit-details-marker {
+        display: none;
+      }
+      details summary svg {
+        transition: transform 0.25s ease;
+      }
+      details[open] summary svg {
+        transform: rotate(180deg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        details summary svg {
+          transition: none;
+        }
       }
     </style>
   </head>
@@ -350,6 +367,168 @@
                 View pricing
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="faq"
+        class="scroll-mt-20 border-b border-black/10 bg-canvas px-5 py-16 sm:px-6 lg:px-8 lg:py-24"
+        aria-labelledby="faq-heading"
+      >
+        <div class="mx-auto max-w-3xl">
+          <h2
+            id="faq-heading"
+            class="font-display text-3xl font-black tracking-tight text-ink sm:text-4xl"
+          >
+            FAQ
+          </h2>
+          <div class="mt-10 border-t border-black/10">
+            <details class="border-b border-black/10">
+              <summary
+                class="flex cursor-pointer touch-manipulation items-center justify-between gap-4 py-5 text-left text-[15px] font-semibold text-ink transition hover:text-ink/80 sm:text-base"
+              >
+                When does LOGR launch?
+                <svg
+                  class="h-5 w-5 shrink-0 text-ink/40"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </summary>
+              <div class="pb-5 pt-0 text-[15px] leading-relaxed text-ink/65">
+                We&apos;re targeting a public launch window in <strong class="font-semibold text-ink/80">2026</strong>.
+                Join the waitlist on the homepage to get launch timing and early access details as we open spots.
+              </div>
+            </details>
+
+            <details class="border-b border-black/10">
+              <summary
+                class="flex cursor-pointer touch-manipulation items-center justify-between gap-4 py-5 text-left text-[15px] font-semibold text-ink transition hover:text-ink/80 sm:text-base"
+              >
+                What can I track in LOGR?
+                <svg
+                  class="h-5 w-5 shrink-0 text-ink/40"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </summary>
+              <div class="pb-5 text-[15px] leading-relaxed text-ink/65">
+                Routines and sessions, sets and reps, volume, PRs, and weekly trends shown next to your feed so progress
+                isn&apos;t buried in menus. Share session recaps and clips with your crew when you want the room to see
+                it.
+              </div>
+            </details>
+
+            <details class="border-b border-black/10">
+              <summary
+                class="flex cursor-pointer touch-manipulation items-center justify-between gap-4 py-5 text-left text-[15px] font-semibold text-ink transition hover:text-ink/80 sm:text-base"
+              >
+                How does the crew feed work?
+                <svg
+                  class="h-5 w-5 shrink-0 text-ink/40"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </summary>
+              <div class="pb-5 text-[15px] leading-relaxed text-ink/65">
+                Your feed is built for training: who showed up, what they logged, PRs, and short clips so accountability
+                lives where you already scroll. Comment and hype your people without splitting across another group chat.
+              </div>
+            </details>
+
+            <details class="border-b border-black/10">
+              <summary
+                class="flex cursor-pointer touch-manipulation items-center justify-between gap-4 py-5 text-left text-[15px] font-semibold text-ink transition hover:text-ink/80 sm:text-base"
+              >
+                Who is LOGR for gyms, teams, or solo lifters?
+                <svg
+                  class="h-5 w-5 shrink-0 text-ink/40"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </summary>
+              <div class="pb-5 text-[15px] leading-relaxed text-ink/65">
+                Anyone who trains can log solo, but LOGR shines when you train with people: lifting partners, gym crews,
+                student athlete rooms, or coaches who want visibility without juggling five apps.
+              </div>
+            </details>
+
+            <details class="border-b border-black/10">
+              <summary
+                class="flex cursor-pointer touch-manipulation items-center justify-between gap-4 py-5 text-left text-[15px] font-semibold text-ink transition hover:text-ink/80 sm:text-base"
+              >
+                What devices does LOGR support?
+                <svg
+                  class="h-5 w-5 shrink-0 text-ink/40"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </summary>
+              <div class="pb-5 text-[15px] leading-relaxed text-ink/65">
+                LOGR is designed <strong class="font-semibold text-ink/80">mobile first</strong>, the experience you saw
+                in the demo is meant for your phone on the gym floor. Web support lets you browse on desktop when
+                you&apos;re planning or reviewing the week.
+              </div>
+            </details>
+
+            <details class="border-b border-black/10">
+              <summary
+                class="flex cursor-pointer touch-manipulation items-center justify-between gap-4 py-5 text-left text-[15px] font-semibold text-ink transition hover:text-ink/80 sm:text-base"
+              >
+                How do I get access?
+                <svg
+                  class="h-5 w-5 shrink-0 text-ink/40"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </summary>
+              <div class="pb-5 text-[15px] leading-relaxed text-ink/65">
+                Add your email on the homepage
+                <a href="index.html#waitlist" class="font-semibold text-ink underline underline-offset-[3px] hover:text-ink/80">waitlist</a>. We&apos;ll share launch updates and how to claim your spot as we roll out founding access.
+              </div>
+            </details>
           </div>
         </div>
       </section>
