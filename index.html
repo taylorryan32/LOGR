@@ -2,7 +2,10 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <title>LOGR: Train with your people</title>
     <meta
       name="description"
@@ -38,6 +41,7 @@
         font-family: Inter, system-ui, sans-serif;
         color: #0a0a0a;
         background: #ffffff;
+        padding-bottom: env(safe-area-inset-bottom, 0px);
       }
       .font-display {
         font-family: Inter, system-ui, sans-serif;
@@ -208,6 +212,16 @@
           -webkit-text-fill-color: currentColor;
         }
       }
+
+      /* Mobile: hide scrollbars on horizontal nav */
+      .scrollbar-touch-none {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-touch-none::-webkit-scrollbar {
+        display: none;
+      }
+
     </style>
   </head>
   <!--
@@ -219,50 +233,78 @@
   >
     <!-- ========== NAVIGATION ========== -->
     <header
-      class="sticky top-0 z-50 border-b border-black/10 bg-canvas/90 backdrop-blur-xl"
+      class="sticky top-0 z-50 border-b border-black/10 bg-canvas/90 backdrop-blur-xl pt-[env(safe-area-inset-top,0px)]"
     >
       <nav
-        class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8"
+        class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-3 sm:px-6 sm:py-4 lg:px-8"
         aria-label="Primary"
       >
-        <a
-          href="#"
-          class="font-display text-xl font-black tracking-tight text-ink transition hover:opacity-80"
+        <div class="flex items-center justify-between gap-3">
+          <a
+            href="#"
+            class="font-display text-xl font-black tracking-tight text-ink transition hover:opacity-80"
+          >
+            LOGR
+          </a>
+          <div class="hidden flex-1 items-center justify-center gap-6 lg:gap-7 md:flex">
+            <a
+              href="#app-preview"
+              class="text-sm font-medium text-ink transition hover:opacity-70"
+              >Demo</a>
+            <a
+              href="#screens"
+              class="text-sm font-medium text-ink/55 transition hover:text-ink"
+              >Clips</a>
+            <a
+              href="#pricing"
+              class="text-sm font-medium text-ink/55 transition hover:text-ink"
+              >Pricing</a>
+            <a
+              href="#ambassadors"
+              class="text-sm font-medium text-ink/55 transition hover:text-ink"
+              >Ambassadors</a>
+          </div>
+          <a
+            href="#waitlist"
+            data-scroll="waitlist"
+            class="touch-manipulation rounded-full border border-ink bg-ink px-4 py-2.5 text-xs font-bold text-canvas transition duration-300 active:scale-[0.98] sm:px-5 sm:text-sm md:hover:-translate-y-0.5 md:hover:bg-ink/90"
+          >
+            Join Waitlist
+          </a>
+        </div>
+        <div
+          class="scrollbar-touch-none flex gap-6 overflow-x-auto border-t border-black/5 pt-3 md:hidden"
+          aria-label="Section shortcuts"
         >
-          LOGR
-        </a>
-        <div class="hidden items-center gap-6 lg:gap-7 md:flex">
           <a
             href="#app-preview"
-            class="text-sm font-medium text-ink transition hover:opacity-70"
+            class="shrink-0 text-sm font-semibold text-ink touch-manipulation py-1"
             >Demo</a>
           <a
             href="#screens"
-            class="text-sm font-medium text-ink/55 transition hover:text-ink"
+            class="shrink-0 text-sm font-medium text-ink/55 touch-manipulation py-1"
             >Clips</a>
           <a
             href="#pricing"
-            class="text-sm font-medium text-ink/55 transition hover:text-ink"
+            class="shrink-0 text-sm font-medium text-ink/55 touch-manipulation py-1"
             >Pricing</a>
           <a
             href="#ambassadors"
-            class="text-sm font-medium text-ink/55 transition hover:text-ink"
+            class="shrink-0 text-sm font-medium text-ink/55 touch-manipulation py-1"
             >Ambassadors</a>
+          <a
+            href="#waitlist"
+            data-scroll="waitlist"
+            class="shrink-0 text-sm font-medium text-ink/55 touch-manipulation py-1"
+            >Waitlist</a>
         </div>
-        <a
-          href="#waitlist"
-          data-scroll="waitlist"
-          class="rounded-full border border-ink bg-ink px-5 py-2.5 text-sm font-bold text-canvas transition duration-300 hover:-translate-y-0.5 hover:bg-ink/90"
-        >
-          Join Waitlist
-        </a>
       </nav>
     </header>
 
     <main>
       <!-- ========== HERO ========== -->
       <section
-        class="relative overflow-hidden border-b border-black/10 px-4 pb-12 pt-10 sm:px-6 sm:pb-14 sm:pt-12 lg:px-8 lg:pb-16 lg:pt-16"
+        class="relative overflow-hidden border-b border-black/10 px-5 pb-14 pt-8 sm:px-6 sm:pb-14 sm:pt-12 lg:px-8 lg:pb-16 lg:pt-16"
         aria-labelledby="hero-heading"
       >
         <div
@@ -284,10 +326,10 @@
         <div class="hero-noise-overlay pointer-events-none absolute inset-0 mix-blend-overlay" aria-hidden="true"></div>
 
         <div
-          class="relative mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-14"
+          class="relative mx-auto grid max-w-6xl gap-8 sm:gap-10 lg:grid-cols-2 lg:items-center lg:gap-14"
         >
           <div data-reveal class="relative z-[1]">
-            <div class="flex flex-wrap items-center gap-3">
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3">
               <span
                 class="inline-flex items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-ink/55 shadow-sm backdrop-blur-sm"
               >
@@ -299,7 +341,7 @@
 
             <h1
               id="hero-heading"
-              class="font-display mt-6 text-[clamp(2.15rem,7vw,4.25rem)] font-black leading-[1.02] tracking-tighter"
+              class="font-display mt-5 text-[clamp(1.95rem,6.5vw,4.25rem)] font-black leading-[1.05] tracking-tighter sm:mt-6"
             >
               <span class="text-ink">Log sessions.</span><br />
               <span class="text-ink">See your crew.</span><br />
@@ -307,9 +349,9 @@
             </h1>
 
             <div
-              class="mt-6 max-w-lg rounded-2xl border border-black/10 bg-white/65 p-5 shadow-[0_1px_0_rgba(10,10,10,0.04)] backdrop-blur-md sm:p-6"
+              class="mt-5 max-w-lg rounded-2xl border border-black/10 bg-white/65 p-5 shadow-[0_1px_0_rgba(10,10,10,0.04)] backdrop-blur-md sm:mt-6 sm:p-6"
             >
-              <p class="text-[15px] leading-relaxed text-ink/70 sm:text-base">
+              <p class="text-[15px] leading-[1.65] text-ink/70 sm:text-base sm:leading-relaxed">
                 LOGR is a phone app for workouts and friends. Build routines, post
                 sessions, watch volume and PRs next to your feed.
               </p>
@@ -330,24 +372,24 @@
             </div>
 
             <div
-              class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+              class="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center"
             >
               <a
                 href="#app-preview"
-                class="inline-flex items-center justify-center rounded-full border border-ink bg-ink px-8 py-3.5 text-center text-sm font-semibold text-canvas shadow-lg shadow-black/20 transition duration-300 hover:-translate-y-0.5 hover:bg-ink/90"
+                class="touch-manipulation inline-flex min-h-[48px] w-full items-center justify-center rounded-full border border-ink bg-ink px-8 py-3.5 text-center text-sm font-semibold text-canvas shadow-lg shadow-black/20 transition duration-300 active:scale-[0.99] sm:w-auto md:hover:-translate-y-0.5 md:hover:bg-ink/90"
               >
                 Try live demo
               </a>
               <a
                 href="#waitlist"
                 data-scroll="waitlist"
-                class="inline-flex items-center justify-center rounded-full border border-black/12 bg-white/90 px-8 py-3.5 text-center text-sm font-semibold text-ink shadow-sm backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-black/20"
+                class="touch-manipulation inline-flex min-h-[48px] w-full items-center justify-center rounded-full border border-black/12 bg-white/90 px-8 py-3.5 text-center text-sm font-semibold text-ink shadow-sm backdrop-blur-sm transition duration-300 active:scale-[0.99] sm:w-auto md:hover:-translate-y-0.5 md:hover:border-black/20"
               >
                 Join waitlist
               </a>
               <a
                 href="#screens"
-                class="inline-flex items-center justify-center px-2 py-3.5 text-center text-sm font-medium text-ink/50 underline-offset-4 transition hover:text-ink"
+                class="touch-manipulation inline-flex min-h-[44px] w-full items-center justify-center py-3 text-center text-sm font-medium text-ink/50 underline-offset-4 transition active:text-ink sm:w-auto sm:py-3.5 md:hover:text-ink"
               >
                 See clip mockups
               </a>
@@ -355,16 +397,16 @@
           </div>
 
           <!-- Interactive app: same source as logr_app_mockup.html (iframe = exact bundle) -->
-          <div id="app-preview" class="relative z-10 mx-auto mt-2 flex w-full scroll-mt-28 justify-center lg:mt-0 lg:justify-end" data-reveal>
+          <div id="app-preview" class="relative z-10 mx-auto mt-6 flex w-full max-w-[min(420px,calc(100vw-2.5rem))] scroll-mt-28 justify-center sm:mt-8 lg:mt-0 lg:max-w-[420px] lg:justify-end" data-reveal>
             <div
-              class="pointer-events-none absolute -inset-4 -z-10 rounded-[3rem] bg-gradient-to-b from-neutral-200/60 to-transparent blur-2xl lg:-inset-6"
+              class="pointer-events-none absolute -inset-3 -z-10 rounded-[3rem] bg-gradient-to-b from-neutral-200/60 to-transparent blur-2xl sm:-inset-4 lg:-inset-6"
               aria-hidden="true"
             ></div>
-            <div class="animate-demo-rise w-full max-w-[420px] shrink-0 overflow-hidden rounded-[2.75rem] shadow-2xl shadow-black/25 ring-1 ring-black/10">
+            <div class="animate-demo-rise w-full shrink-0 overflow-hidden rounded-[2.25rem] shadow-2xl shadow-black/25 ring-1 ring-black/10 sm:max-w-[420px] sm:rounded-[2.75rem]">
               <iframe
                 src="logr_app_mockup.html"
                 title="LOGR interactive preview"
-                class="block h-[min(640px,82vh)] w-full min-h-[460px] border-0 bg-transparent sm:h-[680px]"
+                class="block h-[min(560px,72svh)] min-h-[380px] w-full border-0 bg-transparent sm:h-[min(640px,82vh)] sm:min-h-[460px] lg:min-h-[520px]"
                 loading="eager"
               ></iframe>
             </div>
@@ -372,20 +414,56 @@
         </div>
       </section>
 
+      <!-- Mobile: visual strip (adds rhythm + gym context) -->
+      <section
+        class="border-b border-black/10 bg-muted/80 px-5 py-8 sm:hidden"
+        aria-label="Training scenes"
+      >
+        <div class="scrollbar-touch-none flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1">
+          <img
+            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=400&q=75"
+            width="400"
+            height="267"
+            alt=""
+            class="mockup-photo h-28 w-44 shrink-0 snap-center rounded-2xl object-cover ring-1 ring-black/10"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="assets/mockup.png"
+            width="400"
+            height="867"
+            alt="LOGR app screen"
+            class="h-28 w-36 shrink-0 snap-center rounded-2xl object-cover object-top ring-1 ring-black/10"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=400&q=75"
+            width="400"
+            height="267"
+            alt=""
+            class="mockup-photo h-28 w-44 shrink-0 snap-center rounded-2xl object-cover ring-1 ring-black/10"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </section>
+
       <section
         id="screens"
-        class="scroll-mt-20 border-b border-black/10 bg-muted px-4 py-10 sm:px-6 lg:px-8 lg:py-12"
+        class="scroll-mt-20 border-b border-black/10 bg-muted px-5 py-12 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
         aria-labelledby="screens-heading"
       >
         <div class="mx-auto max-w-6xl">
           <div class="text-center" data-reveal>
             <h2
               id="screens-heading"
-              class="font-display text-2xl font-black tracking-tight text-ink sm:text-3xl"
+              class="font-display text-xl font-black leading-tight tracking-tight text-ink sm:text-3xl"
             >
               Fitness clips in your feed
             </h2>
-            <p class="mx-auto mt-2 max-w-lg text-sm text-ink/55">
+            <p class="mx-auto mt-3 max-w-lg px-1 text-[15px] leading-relaxed text-ink/55 sm:mt-4 sm:text-sm">
               Vertical posts for session recaps, form checks, and crew hype. The
               kind of short form content lifters already share, next to logs and
               PRs.
@@ -393,10 +471,10 @@
           </div>
 
           <div
-            class="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6 lg:gap-8"
+            class="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-6 lg:gap-8"
           >
             <!-- Session recap -->
-            <figure class="phone-hover animate-volt-float mx-auto w-full max-w-[220px]">
+            <figure class="phone-hover animate-volt-float mx-auto w-full max-w-[min(260px,calc(100vw-2.5rem))] sm:max-w-[220px]">
               <figcaption
                 class="mb-3 text-center text-[11px] font-semibold uppercase tracking-wider text-ink/45"
               >
@@ -453,7 +531,7 @@
             </figure>
 
             <!-- Form check -->
-            <figure class="phone-hover animate-volt-float-delay mx-auto w-full max-w-[220px] sm:translate-y-4">
+            <figure class="phone-hover animate-volt-float-delay mx-auto w-full max-w-[min(260px,calc(100vw-2.5rem))] sm:max-w-[220px] sm:translate-y-4">
               <figcaption
                 class="mb-3 text-center text-[11px] font-semibold uppercase tracking-wider text-ink/45"
               >
@@ -510,7 +588,7 @@
             </figure>
 
             <!-- Crew hype -->
-            <figure class="phone-hover animate-volt-float-rev mx-auto w-full max-w-[220px]">
+            <figure class="phone-hover animate-volt-float-rev mx-auto w-full max-w-[min(260px,calc(100vw-2.5rem))] sm:max-w-[220px]">
               <figcaption
                 class="mb-3 text-center text-[11px] font-semibold uppercase tracking-wider text-ink/45"
               >
@@ -571,7 +649,7 @@
 
       <section
         id="story"
-        class="scroll-mt-20 border-b border-black/10 bg-canvas px-4 py-10 sm:px-6 lg:px-8 lg:py-11"
+        class="scroll-mt-20 border-b border-black/10 bg-canvas px-5 py-12 sm:px-6 lg:px-8 lg:py-11"
         aria-labelledby="story-heading"
       >
         <div class="mx-auto max-w-2xl text-center" data-reveal>
@@ -587,7 +665,7 @@
       <!-- ========== PRICING ========== -->
       <section
         id="pricing"
-        class="scroll-mt-20 border-b border-black/10 bg-muted px-4 py-12 sm:px-6 lg:px-8 lg:py-14"
+        class="scroll-mt-20 border-b border-black/10 bg-muted px-5 py-14 sm:px-6 lg:px-8 lg:py-14"
         aria-labelledby="pricing-heading"
       >
         <div class="mx-auto max-w-6xl" data-reveal>
@@ -605,7 +683,7 @@
           </p>
 
           <div
-            class="mx-auto mt-10 grid max-w-5xl gap-5 lg:grid-cols-3 lg:gap-4"
+            class="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-6 sm:gap-5 lg:grid-cols-3 lg:gap-4"
           >
             <article
               class="flex flex-col rounded-2xl border border-black/10 bg-canvas p-6 shadow-sm sm:p-8"
@@ -634,14 +712,14 @@
               <a
                 href="#waitlist"
                 data-scroll="waitlist"
-                class="mt-8 block rounded-full border border-black/15 bg-muted py-3 text-center text-sm font-semibold text-ink transition hover:bg-black/5"
+                class="touch-manipulation mt-8 block min-h-[48px] rounded-full border border-black/15 bg-muted py-3.5 text-center text-sm font-semibold text-ink transition active:bg-black/10 md:hover:bg-black/5"
               >
                 Join waitlist
               </a>
             </article>
 
             <article
-              class="relative flex flex-col rounded-2xl border-2 border-ink bg-canvas p-6 shadow-xl sm:p-8"
+              class="relative flex flex-col rounded-2xl border-2 border-ink bg-canvas p-6 pt-10 shadow-xl sm:p-8 sm:pt-8"
             >
               <span
                 class="absolute right-6 top-6 rounded-full border border-black/10 bg-muted px-3 py-1 text-[10px] font-black uppercase tracking-wider text-ink"
@@ -677,7 +755,7 @@
               <a
                 href="#waitlist"
                 data-scroll="waitlist"
-                class="mt-8 block rounded-full border border-ink bg-ink py-3 text-center text-sm font-semibold text-canvas transition hover:bg-ink/90"
+                class="touch-manipulation mt-8 block min-h-[48px] rounded-full border border-ink bg-ink py-3.5 text-center text-sm font-semibold text-canvas transition active:bg-ink/95 md:hover:bg-ink/90"
               >
                 Get notified at launch
               </a>
@@ -711,7 +789,7 @@
               <a
                 href="#waitlist"
                 data-scroll="waitlist"
-                class="mt-8 block rounded-full border border-black/15 bg-muted py-3 text-center text-sm font-semibold text-ink transition hover:bg-black/5"
+                class="touch-manipulation mt-8 block min-h-[48px] rounded-full border border-black/15 bg-muted py-3.5 text-center text-sm font-semibold text-ink transition active:bg-black/10 md:hover:bg-black/5"
               >
                 Talk to us at launch
               </a>
@@ -726,7 +804,7 @@
       <!-- ========== AMBASSADORS ========== -->
       <section
         id="ambassadors"
-        class="scroll-mt-20 border-b border-black/10 bg-canvas px-4 py-12 sm:px-6 lg:px-8 lg:py-14"
+        class="scroll-mt-20 border-b border-black/10 bg-canvas px-5 py-14 sm:px-6 lg:px-8 lg:py-14"
         aria-labelledby="ambassadors-heading"
       >
         <div class="mx-auto max-w-xl" data-reveal>
@@ -756,7 +834,7 @@
                 autocomplete="email"
                 required
                 placeholder="you@school.edu"
-                class="w-full rounded-xl border border-black/15 bg-canvas px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/35 focus:border-ink/30"
+                class="w-full rounded-xl border border-black/15 bg-canvas px-4 py-3.5 text-base text-ink outline-none transition placeholder:text-ink/35 focus:border-ink/30"
               />
             </div>
             <div>
@@ -767,7 +845,7 @@
                 type="text"
                 autocomplete="organization"
                 placeholder="University, gym name, or city"
-                class="w-full rounded-xl border border-black/15 bg-canvas px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/35 focus:border-ink/30"
+                class="w-full rounded-xl border border-black/15 bg-canvas px-4 py-3.5 text-base text-ink outline-none transition placeholder:text-ink/35 focus:border-ink/30"
               />
             </div>
             <div>
@@ -777,12 +855,12 @@
                 name="note"
                 rows="2"
                 placeholder="Optional note."
-                class="w-full resize-y rounded-xl border border-black/15 bg-canvas px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/35 focus:border-ink/30"
+                class="w-full resize-y rounded-xl border border-black/15 bg-canvas px-4 py-3 text-base text-ink outline-none transition placeholder:text-ink/35 focus:border-ink/30"
               ></textarea>
             </div>
             <button
               type="submit"
-              class="mt-2 rounded-full border border-ink bg-ink py-3.5 text-sm font-semibold text-canvas transition hover:bg-ink/90"
+              class="touch-manipulation mt-2 min-h-[48px] rounded-full border border-ink bg-ink py-3.5 text-sm font-semibold text-canvas transition active:bg-ink/95 md:hover:bg-ink/90"
             >
               Apply
             </button>
@@ -796,7 +874,7 @@
       </section>
 
       <section
-        class="scroll-mt-20 border-b border-black/10 bg-muted px-4 py-10 text-center sm:px-6 lg:px-8"
+        class="scroll-mt-20 border-b border-black/10 bg-muted px-5 py-12 text-center sm:px-6 lg:px-8"
         aria-label="Call to action"
       >
         <div data-reveal>
@@ -809,7 +887,7 @@
           <a
             href="#waitlist"
             data-scroll="waitlist"
-            class="mt-6 inline-flex rounded-full border border-ink bg-ink px-8 py-3 text-sm font-semibold text-canvas transition hover:bg-ink/90"
+            class="touch-manipulation mt-6 inline-flex min-h-[48px] items-center justify-center rounded-full border border-ink bg-ink px-8 py-3 text-sm font-semibold text-canvas transition active:bg-ink/95 md:hover:bg-ink/90"
           >
             Join the Waitlist
           </a>
@@ -818,10 +896,10 @@
 
       <section
         id="waitlist"
-        class="scroll-mt-20 border-b border-black/10 bg-ink py-12 text-canvas md:py-16"
+        class="scroll-mt-20 border-b border-black/10 bg-ink py-14 text-canvas md:py-16"
         aria-labelledby="waitlist-heading"
       >
-        <div class="mx-auto max-w-xl px-4 text-center sm:px-6 lg:px-8" data-reveal>
+        <div class="mx-auto max-w-xl px-5 text-center sm:px-6 lg:px-8" data-reveal>
           <h2
             id="waitlist-heading"
             class="font-display text-2xl font-black tracking-tight sm:text-3xl"
@@ -843,11 +921,11 @@
               type="email"
               autocomplete="email"
               placeholder="you@example.com"
-              class="min-h-[52px] flex-1 border border-canvas bg-transparent px-4 py-3 text-canvas placeholder:text-canvas/50 outline-none focus:border-canvas"
+              class="min-h-[52px] flex-1 border border-canvas bg-transparent px-4 py-3 text-base text-canvas placeholder:text-canvas/50 outline-none focus:border-canvas"
             />
             <button
               type="submit"
-              class="min-h-[52px] border border-canvas bg-canvas px-8 py-3 text-sm font-semibold text-ink sm:shrink-0"
+              class="touch-manipulation min-h-[52px] border border-canvas bg-canvas px-8 py-3 text-sm font-semibold text-ink active:bg-neutral-100 sm:shrink-0"
             >
               Submit
             </button>
@@ -860,10 +938,10 @@
         </div>
       </section>
 
-      <section class="py-10 md:py-12" aria-labelledby="stats-heading">
+      <section class="py-12 md:py-14" aria-labelledby="stats-heading">
         <h2 id="stats-heading" class="sr-only">Social proof</h2>
         <div
-          class="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 sm:grid-cols-3 sm:gap-6 sm:px-6 lg:px-8"
+          class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-5 sm:grid-cols-3 sm:gap-8 sm:px-6 lg:px-8"
           data-reveal
         >
           <div class="text-center">
@@ -890,11 +968,11 @@
 
     <!-- ========== SITE FOOTER ========== -->
     <footer
-      class="border-t border-black/10 bg-ink py-10 text-canvas"
+      class="border-t border-black/10 bg-ink py-12 pb-[max(2.5rem,env(safe-area-inset-bottom))] text-canvas"
       role="contentinfo"
     >
       <div
-        class="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 md:flex-row md:items-start md:justify-between lg:px-8"
+        class="mx-auto flex max-w-6xl flex-col gap-10 px-5 sm:px-6 md:flex-row md:items-start md:justify-between md:gap-8 lg:px-8"
       >
         <div>
           <p class="font-display text-xl font-black tracking-tight">LOGR</p>
