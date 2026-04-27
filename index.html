@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOGR: Train with your people</title>
+    <meta
+      name="description"
+      content="Log workouts, follow your crew, stay on track together. Tap the live demo or join the waitlist."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#0A0A0A",
+              canvas: "#FFFFFF",
+              muted: "#F5F5F5",
+            },
+            fontFamily: {
+              display: ["Inter", "system-ui", "sans-serif"],
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: Inter, system-ui, sans-serif;
+        color: #0a0a0a;
+        background: #ffffff;
+      }
+      .font-display {
+        font-family: Inter, system-ui, sans-serif;
+      }
+      /* Floating phone motion (respect reduced motion) */
+      @keyframes volt-float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-14px);
+        }
+      }
+      @keyframes volt-float-reverse {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(12px);
+        }
+      }
+      @keyframes volt-drift {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(var(--tw-rotate, 0deg));
+        }
+        50% {
+          transform: translate(6px, -8px) rotate(var(--tw-rotate, 0deg));
+        }
+      }
+      @keyframes volt-pulse-bar {
+        0%,
+        100% {
+          width: 68%;
+        }
+        50% {
+          width: 82%;
+        }
+      }
+      @keyframes volt-shimmer {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 200% 50%;
+        }
+      }
+      .animate-volt-float {
+        animation: volt-float 5.5s ease-in-out infinite;
+      }
+      .animate-volt-float-delay {
+        animation: volt-float 6.5s ease-in-out 0.8s infinite;
+      }
+      .animate-volt-float-rev {
+        animation: volt-float-reverse 6s ease-in-out infinite;
+      }
+      .animate-volt-drift {
+        animation: volt-drift 8s ease-in-out infinite;
+      }
+      .animate-volt-bar {
+        animation: volt-pulse-bar 3s ease-in-out infinite;
+      }
+      .volt-shimmer {
+        background: linear-gradient(
+          90deg,
+          rgba(10, 10, 10, 0.04),
+          rgba(10, 10, 10, 0.08),
+          rgba(10, 10, 10, 0.04)
+        );
+        background-size: 200% 100%;
+        animation: volt-shimmer 8s linear infinite;
+      }
+      /* [data-reveal] no longer uses opacity:0 (that hid all copy when /app.js or IntersectionObserver failed). */
+      @media (prefers-reduced-motion: reduce) {
+        .animate-volt-float,
+        .animate-volt-float-delay,
+        .animate-volt-float-rev,
+        .animate-volt-drift,
+        .animate-volt-bar,
+        .volt-shimmer {
+          animation: none !important;
+        }
+      }
+      /* Phone chrome: notch + bezel */
+      .phone-frame {
+        border-radius: 2.25rem;
+        padding: 0.45rem;
+        background: linear-gradient(160deg, #fafafa 0%, #e5e5e5 100%);
+        box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.12),
+          0 0 0 1px rgba(10, 10, 10, 0.08);
+      }
+      .phone-screen {
+        position: relative;
+        border-radius: 1.85rem;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .phone-notch {
+        position: absolute;
+        top: 0.35rem;
+        left: 50%;
+        z-index: 10;
+        height: 1.35rem;
+        width: 4.5rem;
+        transform: translateX(-50%);
+        border-radius: 9999px;
+        background: #0a0a0a;
+      }
+      .mockup-photo {
+        filter: grayscale(1) contrast(1.05);
+      }
+      @keyframes demo-rise {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .animate-demo-rise {
+        animation: demo-rise 8s ease-in-out infinite;
+      }
+      .phone-hover {
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+      .phone-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.18);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .animate-demo-rise {
+          animation: none !important;
+        }
+      }
+
+      /* Hero atmosphere */
+      .hero-glow-orbs {
+        pointer-events: none;
+      }
+      .hero-heading-accent {
+        background-image: linear-gradient(
+          115deg,
+          #0a0a0a 0%,
+          #525252 55%,
+          #0a0a0a 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+        .hero-heading-accent {
+          color: #0a0a0a;
+          background-image: none;
+        }
+      }
+      .hero-noise-overlay {
+        opacity: 0.04;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-heading-accent {
+          background-image: none !important;
+          color: #0a0a0a !important;
+          -webkit-text-fill-color: currentColor;
+        }
+      }
+    </style>
+  </head>
+  <!--
+    LOGR marketing page (aligned with repo root landing)
+    Stack: static HTML + Tailwind CDN (served by Spring Boot from /static)
+  -->
+  <body
+    class="bg-canvas text-ink antialiased selection:bg-ink/10 selection:text-ink"
+  >
+    <!-- ========== NAVIGATION ========== -->
+    <header
+      class="sticky top-0 z-50 border-b border-black/10 bg-canvas/90 backdrop-blur-xl"
+    >
+      <nav
+        class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8"
+        aria-label="Primary"
+      >
+        <a
+          href="#"
+          class="font-display text-xl font-black tracking-tight text-ink transition hover:opacity-80"
+        >
+          LOGR
+        </a>
+        <div class="hidden items-center gap-6 lg:gap-7 md:flex">
+          <a
+            href="#app-preview"
+            class="text-sm font-medium text-ink transition hover:opacity-70"
+            >Demo</a>
+          <a
+            href="#screens"
+            class="text-sm font-medium text-ink/55 transition hover:text-ink"
+            >Clips</a>
+          <a
+            href="#pricing"
+            class="text-sm font-medium text-ink/55 transition hover:text-ink"
+            >Pricing</a>
+          <a
+            href="#ambassadors"
+            class="text-sm font-medium text-ink/55 transition hover:text-ink"
+            >Ambassadors</a>
+        </div>
+        <a
+          href="#waitlist"
+          data-scroll="waitlist"
+          class="rounded-full border border-ink bg-ink px-5 py-2.5 text-sm font-bold text-canvas transition duration-300 hover:-translate-y-0.5 hover:bg-ink/90"
+        >
+          Join Waitlist
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ========== HERO ========== -->
+      <section
+        class="relative overflow-hidden border-b border-black/10 px-4 pb-12 pt-10 sm:px-6 sm:pb-14 sm:pt-12 lg:px-8 lg:pb-16 lg:pt-16"
+        aria-labelledby="hero-heading"
+      >
+        <div
+          class="pointer-events-none absolute inset-0 bg-gradient-to-b from-neutral-100/90 via-canvas to-canvas"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="hero-glow-orbs absolute -right-20 top-8 h-[min(420px,50vw)] w-[min(420px,50vw)] rounded-full bg-gradient-to-bl from-neutral-300/50 via-transparent to-transparent blur-3xl sm:right-0 lg:top-12"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="hero-glow-orbs absolute -left-16 bottom-0 h-[280px] w-[280px] rounded-full bg-gradient-to-tr from-neutral-200/70 via-neutral-100/30 to-transparent blur-3xl"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(10,10,10,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(10,10,10,0.03)_1px,transparent_1px)] bg-[size:56px_56px]"
+          aria-hidden="true"
+        ></div>
+        <div class="hero-noise-overlay pointer-events-none absolute inset-0 mix-blend-overlay" aria-hidden="true"></div>
+
+        <div
+          class="relative mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-14"
+        >
+          <div data-reveal class="relative z-[1]">
+            <div class="flex flex-wrap items-center gap-3">
+              <span
+                class="inline-flex items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-ink/55 shadow-sm backdrop-blur-sm"
+              >
+                Social fitness
+              </span>
+              <span class="hidden h-4 w-px bg-black/15 sm:block" aria-hidden="true"></span>
+              <span class="text-[13px] font-medium text-ink/45">Early access</span>
+            </div>
+
+            <h1
+              id="hero-heading"
+              class="font-display mt-6 text-[clamp(2.15rem,7vw,4.25rem)] font-black leading-[1.02] tracking-tighter"
+            >
+              <span class="text-ink">Log sessions.</span><br />
+              <span class="text-ink">See your crew.</span><br />
+              <span class="hero-heading-accent">Stay consistent.</span>
+            </h1>
+
+            <div
+              class="mt-6 max-w-lg rounded-2xl border border-black/10 bg-white/65 p-5 shadow-[0_1px_0_rgba(10,10,10,0.04)] backdrop-blur-md sm:p-6"
+            >
+              <p class="text-[15px] leading-relaxed text-ink/70 sm:text-base">
+                LOGR is a phone app for workouts and friends. Build routines, post
+                sessions, watch volume and PRs next to your feed.
+              </p>
+              <div
+                class="mt-5 flex flex-wrap gap-2 border-t border-black/10 pt-5"
+                aria-label="Product highlights"
+              >
+                <span
+                  class="rounded-lg border border-black/10 bg-muted/80 px-2.5 py-1 text-xs font-semibold text-ink/75"
+                  >Sessions &amp; sets</span>
+                <span
+                  class="rounded-lg border border-black/10 bg-muted/80 px-2.5 py-1 text-xs font-semibold text-ink/75"
+                  >Crew feed</span>
+                <span
+                  class="rounded-lg border border-black/10 bg-muted/80 px-2.5 py-1 text-xs font-semibold text-ink/75"
+                  >PR tracking</span>
+              </div>
+            </div>
+
+            <div
+              class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+            >
+              <a
+                href="#app-preview"
+                class="inline-flex items-center justify-center rounded-full border border-ink bg-ink px-8 py-3.5 text-center text-sm font-semibold text-canvas shadow-lg shadow-black/20 transition duration-300 hover:-translate-y-0.5 hover:bg-ink/90"
+              >
+                Try live demo
+              </a>
+              <a
+                href="#waitlist"
+                data-scroll="waitlist"
+                class="inline-flex items-center justify-center rounded-full border border-black/12 bg-white/90 px-8 py-3.5 text-center text-sm font-semibold text-ink shadow-sm backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-black/20"
+              >
+                Join waitlist
+              </a>
+              <a
+                href="#screens"
+                class="inline-flex items-center justify-center px-2 py-3.5 text-center text-sm font-medium text-ink/50 underline-offset-4 transition hover:text-ink"
+              >
+                See clip mockups
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive app: same source as logr_app_mockup.html (iframe = exact bundle) -->
+          <div id="app-preview" class="relative z-10 mx-auto mt-2 flex w-full scroll-mt-28 justify-center lg:mt-0 lg:justify-end" data-reveal>
+            <div
+              class="pointer-events-none absolute -inset-4 -z-10 rounded-[3rem] bg-gradient-to-b from-neutral-200/60 to-transparent blur-2xl lg:-inset-6"
+              aria-hidden="true"
+            ></div>
+            <div class="animate-demo-rise w-full max-w-[420px] shrink-0 overflow-hidden rounded-[2.75rem] shadow-2xl shadow-black/25 ring-1 ring-black/10">
+              <iframe
+                src="logr_app_mockup.html"
+                title="LOGR interactive preview"
+                class="block h-[min(640px,82vh)] w-full min-h-[460px] border-0 bg-transparent sm:h-[680px]"
+                loading="eager"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="screens"
+        class="scroll-mt-20 border-b border-black/10 bg-muted px-4 py-10 sm:px-6 lg:px-8 lg:py-12"
+        aria-labelledby="screens-heading"
+      >
+        <div class="mx-auto max-w-6xl">
+          <div class="text-center" data-reveal>
+            <h2
+              id="screens-heading"
+              class="font-display text-2xl font-black tracking-tight text-ink sm:text-3xl"
+            >
+              Fitness clips in your feed
+            </h2>
+            <p class="mx-auto mt-2 max-w-lg text-sm text-ink/55">
+              Vertical posts for session recaps, form checks, and crew hype. The
+              kind of short form content lifters already share, next to logs and
+              PRs.
+            </p>
+          </div>
+
+          <div
+            class="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6 lg:gap-8"
+          >
+            <!-- Session recap -->
+            <figure class="phone-hover animate-volt-float mx-auto w-full max-w-[220px]">
+              <figcaption
+                class="mb-3 text-center text-[11px] font-semibold uppercase tracking-wider text-ink/45"
+              >
+                Session recap
+              </figcaption>
+              <div
+                class="relative aspect-[9/16] overflow-hidden rounded-3xl border border-black/10 bg-neutral-900 shadow-xl shadow-black/15"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-neutral-700/90 via-neutral-900 to-black"
+                  aria-hidden="true"
+                ></div>
+                <div
+                  class="absolute inset-0 opacity-[0.12]"
+                  style="
+                    background-image: repeating-linear-gradient(
+                      0deg,
+                      transparent,
+                      transparent 2px,
+                      rgba(255, 255, 255, 0.06) 2px,
+                      rgba(255, 255, 255, 0.06) 4px
+                    );
+                  "
+                  aria-hidden="true"
+                ></div>
+                <div class="absolute left-3 right-3 top-3 flex items-center justify-between text-[10px] font-medium text-white/90">
+                  <span>@mike, Push</span>
+                  <span class="rounded bg-black/40 px-1.5 py-0.5 font-mono tabular-nums">0:48</span>
+                </div>
+                <div
+                  class="absolute inset-0 flex items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <span
+                    class="flex h-14 w-14 items-center justify-center rounded-full border border-white/30 bg-white/95 text-ink shadow-lg"
+                  >
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/70 to-transparent px-4 pb-4 pt-16 text-left"
+                >
+                  <p class="text-[11px] text-white/75">Top set, bench</p>
+                  <p class="mt-1 text-sm font-semibold leading-snug text-white">
+                    225×5. Leaving one in the tank
+                  </p>
+                  <div class="mt-3 h-1 w-full overflow-hidden rounded-full bg-white/20">
+                    <div class="h-full w-[62%] rounded-full bg-white/85"></div>
+                  </div>
+                </div>
+              </div>
+            </figure>
+
+            <!-- Form check -->
+            <figure class="phone-hover animate-volt-float-delay mx-auto w-full max-w-[220px] sm:translate-y-4">
+              <figcaption
+                class="mb-3 text-center text-[11px] font-semibold uppercase tracking-wider text-ink/45"
+              >
+                Form check
+              </figcaption>
+              <div
+                class="relative aspect-[9/16] overflow-hidden rounded-3xl border border-black/10 bg-neutral-900 shadow-xl shadow-black/15"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-zinc-600 via-neutral-900 to-black"
+                  aria-hidden="true"
+                ></div>
+                <div
+                  class="absolute inset-0 opacity-[0.12]"
+                  style="
+                    background-image: repeating-linear-gradient(
+                      90deg,
+                      transparent,
+                      transparent 2px,
+                      rgba(255, 255, 255, 0.05) 2px,
+                      rgba(255, 255, 255, 0.05) 4px
+                    );
+                  "
+                  aria-hidden="true"
+                ></div>
+                <div class="absolute left-3 right-3 top-3 flex items-center justify-between text-[10px] font-medium text-white/90">
+                  <span>@coach, Notes</span>
+                  <span class="rounded bg-black/40 px-1.5 py-0.5 font-mono tabular-nums">1:05</span>
+                </div>
+                <div
+                  class="absolute inset-0 flex items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <span
+                    class="flex h-14 w-14 items-center justify-center rounded-full border border-white/30 bg-white/95 text-ink shadow-lg"
+                  >
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/70 to-transparent px-4 pb-4 pt-16 text-left"
+                >
+                  <p class="text-[11px] text-white/75">Paused squat, side angle</p>
+                  <p class="mt-1 text-sm font-semibold leading-snug text-white">
+                    Brace before the dip: hips back first
+                  </p>
+                  <div class="mt-3 h-1 w-full overflow-hidden rounded-full bg-white/20">
+                    <div class="h-full w-[38%] rounded-full bg-white/85"></div>
+                  </div>
+                </div>
+              </div>
+            </figure>
+
+            <!-- Crew hype -->
+            <figure class="phone-hover animate-volt-float-rev mx-auto w-full max-w-[220px]">
+              <figcaption
+                class="mb-3 text-center text-[11px] font-semibold uppercase tracking-wider text-ink/45"
+              >
+                Crew hype
+              </figcaption>
+              <div
+                class="relative aspect-[9/16] overflow-hidden rounded-3xl border border-black/10 bg-neutral-900 shadow-xl shadow-black/15"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-800 to-neutral-700"
+                  aria-hidden="true"
+                ></div>
+                <div
+                  class="absolute inset-0 opacity-[0.12]"
+                  style="
+                    background-image: repeating-linear-gradient(
+                      -20deg,
+                      transparent,
+                      transparent 3px,
+                      rgba(255, 255, 255, 0.05) 3px,
+                      rgba(255, 255, 255, 0.05) 6px
+                    );
+                  "
+                  aria-hidden="true"
+                ></div>
+                <div class="absolute left-3 right-3 top-3 flex items-center justify-between text-[10px] font-medium text-white/90">
+                  <span>@crew, Meet</span>
+                  <span class="rounded bg-black/40 px-1.5 py-0.5 font-mono tabular-nums">0:26</span>
+                </div>
+                <div
+                  class="absolute inset-0 flex items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <span
+                    class="flex h-14 w-14 items-center justify-center rounded-full border border-white/30 bg-white/95 text-ink shadow-lg"
+                  >
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/70 to-transparent px-4 pb-4 pt-16 text-left"
+                >
+                  <p class="text-[11px] text-white/75">Saturday AM, everyone showed</p>
+                  <p class="mt-1 text-sm font-semibold leading-snug text-white">
+                    New deadlift PR for Sam. The whole rack cheered
+                  </p>
+                  <div class="mt-3 h-1 w-full overflow-hidden rounded-full bg-white/20">
+                    <div class="h-full w-[84%] rounded-full bg-white/85"></div>
+                  </div>
+                </div>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="story"
+        class="scroll-mt-20 border-b border-black/10 bg-canvas px-4 py-10 sm:px-6 lg:px-8 lg:py-11"
+        aria-labelledby="story-heading"
+      >
+        <div class="mx-auto max-w-2xl text-center" data-reveal>
+          <p
+            id="story-heading"
+            class="font-display text-base font-semibold leading-snug text-ink sm:text-lg"
+          >
+            Solo logs collect dust. Post where your crew can see.
+          </p>
+        </div>
+      </section>
+
+      <!-- ========== PRICING ========== -->
+      <section
+        id="pricing"
+        class="scroll-mt-20 border-b border-black/10 bg-muted px-4 py-12 sm:px-6 lg:px-8 lg:py-14"
+        aria-labelledby="pricing-heading"
+      >
+        <div class="mx-auto max-w-6xl" data-reveal>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ink/45">
+            Plans
+          </p>
+          <h2
+            id="pricing-heading"
+            class="font-display mt-2 max-w-2xl text-2xl font-black tracking-tight text-ink sm:text-3xl"
+          >
+            Three tiers at launch.
+          </h2>
+          <p class="mt-3 max-w-xl text-sm text-ink/60">
+            Free for the loop; Plus for power users; Crew for squads.
+          </p>
+
+          <div
+            class="mx-auto mt-10 grid max-w-5xl gap-5 lg:grid-cols-3 lg:gap-4"
+          >
+            <article
+              class="flex flex-col rounded-2xl border border-black/10 bg-canvas p-6 shadow-sm sm:p-8"
+            >
+              <p class="text-xs font-bold uppercase tracking-widest text-ink/45">
+                Free
+              </p>
+              <p class="font-display mt-3 text-4xl font-black text-ink">
+                $0
+                <span class="text-lg font-semibold text-ink/40">/mo</span>
+              </p>
+              <ul class="mt-6 flex-1 space-y-2.5 text-sm leading-relaxed text-ink/75">
+                <li class="flex gap-2">
+                  <span class="text-ink" aria-hidden="true">✓</span>
+                  Feed, follows, posts
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-ink" aria-hidden="true">✓</span>
+                  Routines &amp; logging
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-ink" aria-hidden="true">✓</span>
+                  PRs &amp; weekly stats
+                </li>
+              </ul>
+              <a
+                href="#waitlist"
+                data-scroll="waitlist"
+                class="mt-8 block rounded-full border border-black/15 bg-muted py-3 text-center text-sm font-semibold text-ink transition hover:bg-black/5"
+              >
+                Join waitlist
+              </a>
+            </article>
+
+            <article
+              class="relative flex flex-col rounded-2xl border-2 border-ink bg-canvas p-6 shadow-xl sm:p-8"
+            >
+              <span
+                class="absolute right-6 top-6 rounded-full border border-black/10 bg-muted px-3 py-1 text-[10px] font-black uppercase tracking-wider text-ink"
+              >
+                Popular
+              </span>
+              <p class="text-xs font-bold uppercase tracking-widest text-ink/55">
+                Plus
+              </p>
+              <p class="font-display mt-3 text-4xl font-black text-ink">
+                $12
+                <span class="text-lg font-semibold text-ink/40">/mo</span>
+              </p>
+              <p class="mt-1 text-xs text-ink/45">Billed monthly at launch.</p>
+              <ul class="mt-6 flex-1 space-y-2.5 text-sm leading-relaxed text-ink/80">
+                <li class="flex gap-2">
+                  <span class="text-ink" aria-hidden="true">✓</span>
+                  Everything in Free
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-ink" aria-hidden="true">✓</span>
+                  Analytics &amp; exports
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-ink" aria-hidden="true">✓</span>
+                  Unlimited routines
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-ink" aria-hidden="true">✓</span>
+                  Early access
+                </li>
+              </ul>
+              <a
+                href="#waitlist"
+                data-scroll="waitlist"
+                class="mt-8 block rounded-full border border-ink bg-ink py-3 text-center text-sm font-semibold text-canvas transition hover:bg-ink/90"
+              >
+                Get notified at launch
+              </a>
+            </article>
+
+            <article
+              class="flex flex-col rounded-2xl border border-black/10 bg-canvas p-6 shadow-sm sm:p-8"
+            >
+              <p class="text-xs font-bold uppercase tracking-widest text-ink/45">
+                Crew
+              </p>
+              <p class="font-display mt-3 text-4xl font-black text-ink">
+                $29
+                <span class="text-lg font-semibold text-ink/40">/mo</span>
+              </p>
+              <p class="mt-1 text-xs text-ink/45">Up to 6 seats. Shared roster.</p>
+              <ul class="mt-6 flex-1 space-y-2.5 text-sm leading-relaxed text-ink/75">
+                <li class="flex gap-2">
+                  <span class="text-ink" aria-hidden="true">✓</span>
+                  Everything in Plus
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-ink" aria-hidden="true">✓</span>
+                  Crew dashboard &amp; invites
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-ink" aria-hidden="true">✓</span>
+                  Shared playlists
+                </li>
+              </ul>
+              <a
+                href="#waitlist"
+                data-scroll="waitlist"
+                class="mt-8 block rounded-full border border-black/15 bg-muted py-3 text-center text-sm font-semibold text-ink transition hover:bg-black/5"
+              >
+                Talk to us at launch
+              </a>
+            </article>
+          </div>
+          <p class="mt-8 text-center text-xs text-ink/45">
+            Waitlist gets launch offers.
+          </p>
+        </div>
+      </section>
+
+      <!-- ========== AMBASSADORS ========== -->
+      <section
+        id="ambassadors"
+        class="scroll-mt-20 border-b border-black/10 bg-canvas px-4 py-12 sm:px-6 lg:px-8 lg:py-14"
+        aria-labelledby="ambassadors-heading"
+      >
+        <div class="mx-auto max-w-xl" data-reveal>
+          <h2
+            id="ambassadors-heading"
+            class="font-display text-center text-2xl font-black tracking-tight text-ink sm:text-3xl"
+          >
+            Ambassador Program
+          </h2>
+          <p class="mt-4 text-center text-sm leading-relaxed text-ink/65">
+            Bring LOGR to your school or gym early. If you already run the group
+            chat or organize workouts, we'll hook you up with perks, early access,
+            and some extras.
+          </p>
+
+          <form
+            id="ambassador-form"
+            class="mt-8 flex flex-col gap-3"
+            novalidate
+          >
+            <div>
+              <label for="ambassador-email" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-ink/50">Email</label>
+              <input
+                id="ambassador-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                placeholder="you@school.edu"
+                class="w-full rounded-xl border border-black/15 bg-canvas px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/35 focus:border-ink/30"
+              />
+            </div>
+            <div>
+              <label for="ambassador-place" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-ink/50">Where you lift</label>
+              <input
+                id="ambassador-place"
+                name="place"
+                type="text"
+                autocomplete="organization"
+                placeholder="University, gym name, or city"
+                class="w-full rounded-xl border border-black/15 bg-canvas px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/35 focus:border-ink/30"
+              />
+            </div>
+            <div>
+              <label for="ambassador-note" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-ink/50">One sentence</label>
+              <textarea
+                id="ambassador-note"
+                name="note"
+                rows="2"
+                placeholder="Optional note."
+                class="w-full resize-y rounded-xl border border-black/15 bg-canvas px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/35 focus:border-ink/30"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="mt-2 rounded-full border border-ink bg-ink py-3.5 text-sm font-semibold text-canvas transition hover:bg-ink/90"
+            >
+              Apply
+            </button>
+          </form>
+          <p
+            id="ambassador-message"
+            class="mt-4 hidden text-center text-sm text-ink/80"
+            role="status"
+          ></p>
+        </div>
+      </section>
+
+      <section
+        class="scroll-mt-20 border-b border-black/10 bg-muted px-4 py-10 text-center sm:px-6 lg:px-8"
+        aria-label="Call to action"
+      >
+        <div data-reveal>
+          <p class="font-display text-lg font-semibold leading-snug text-ink sm:text-xl">
+            Show up for your crew and your next PR.
+          </p>
+          <p class="mx-auto mt-2 max-w-md text-sm text-ink/55">
+            Join the waitlist for early access when LOGR launches.
+          </p>
+          <a
+            href="#waitlist"
+            data-scroll="waitlist"
+            class="mt-6 inline-flex rounded-full border border-ink bg-ink px-8 py-3 text-sm font-semibold text-canvas transition hover:bg-ink/90"
+          >
+            Join the Waitlist
+          </a>
+        </div>
+      </section>
+
+      <section
+        id="waitlist"
+        class="scroll-mt-20 border-b border-black/10 bg-ink py-12 text-canvas md:py-16"
+        aria-labelledby="waitlist-heading"
+      >
+        <div class="mx-auto max-w-xl px-4 text-center sm:px-6 lg:px-8" data-reveal>
+          <h2
+            id="waitlist-heading"
+            class="font-display text-2xl font-black tracking-tight sm:text-3xl"
+          >
+            Join the waitlist
+          </h2>
+          <p class="mt-3 text-sm text-canvas/80">
+            We will email you at launch.
+          </p>
+          <form
+            id="waitlist-form"
+            class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-stretch"
+            novalidate
+          >
+            <label for="waitlist-email" class="sr-only">Email</label>
+            <input
+              id="waitlist-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              class="min-h-[52px] flex-1 border border-canvas bg-transparent px-4 py-3 text-canvas placeholder:text-canvas/50 outline-none focus:border-canvas"
+            />
+            <button
+              type="submit"
+              class="min-h-[52px] border border-canvas bg-canvas px-8 py-3 text-sm font-semibold text-ink sm:shrink-0"
+            >
+              Submit
+            </button>
+          </form>
+          <p
+            id="waitlist-message"
+            class="mt-4 hidden text-sm text-canvas/90"
+            role="status"
+          ></p>
+        </div>
+      </section>
+
+      <section class="py-10 md:py-12" aria-labelledby="stats-heading">
+        <h2 id="stats-heading" class="sr-only">Social proof</h2>
+        <div
+          class="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 sm:grid-cols-3 sm:gap-6 sm:px-6 lg:px-8"
+          data-reveal
+        >
+          <div class="text-center">
+            <p class="font-display text-4xl font-black tracking-tight sm:text-5xl">
+              500+
+            </p>
+            <p class="mt-2 text-sm font-medium text-ink/50">Signups</p>
+          </div>
+          <div class="text-center">
+            <p class="font-display text-4xl font-black tracking-tight sm:text-5xl">3</p>
+            <p class="mt-2 text-sm font-medium text-ink/50">
+              Founding Members
+            </p>
+          </div>
+          <div class="text-center">
+            <p class="font-display text-4xl font-black tracking-tight sm:text-5xl">
+              2026
+            </p>
+            <p class="mt-2 text-sm font-medium text-ink/50">Launch</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== SITE FOOTER ========== -->
+    <footer
+      class="border-t border-black/10 bg-ink py-10 text-canvas"
+      role="contentinfo"
+    >
+      <div
+        class="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 md:flex-row md:items-start md:justify-between lg:px-8"
+      >
+        <div>
+          <p class="font-display text-xl font-black tracking-tight">LOGR</p>
+          <p class="mt-3 max-w-xs text-sm leading-relaxed text-canvas/70">
+            Log workouts, follow your crew, stay accountable together.
+          </p>
+        </div>
+        <ul
+          class="flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-canvas/90"
+        >
+          <li>
+            <a href="#app-preview" class="underline-offset-4 hover:underline">Demo</a>
+          </li>
+          <li>
+            <a href="#pricing" class="underline-offset-4 hover:underline">Pricing</a>
+          </li>
+          <li>
+            <a href="#ambassadors" class="underline-offset-4 hover:underline">Ambassadors</a>
+          </li>
+          <li>
+            <a href="#" class="underline-offset-4 hover:underline">Privacy</a>
+          </li>
+          <li>
+            <a href="#" class="underline-offset-4 hover:underline">Terms</a>
+          </li>
+          <li>
+            <a
+              href="https://twitter.com"
+              class="underline-offset-4 hover:underline"
+              rel="noopener noreferrer"
+              >Twitter</a>
+          </li>
+          <li>
+            <a
+              href="https://instagram.com"
+              class="underline-offset-4 hover:underline"
+              rel="noopener noreferrer"
+              >Instagram</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>
